@@ -7,7 +7,7 @@ User Stories
 
 
 Victor Cheng @victorcheng7
-![image](https://{https://raw.github.com/scalableinternetservices/iAMarobot/victor_picture.png})
+![screenshot](https://{https://raw.github.com/scalableinternetservices/iAMarobot/victor_picture.png})
 
 
 Carly Larsson
