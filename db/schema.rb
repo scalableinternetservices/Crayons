@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20171015004908) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "imageinfo", id: :integer, default: nil, force: :cascade do |t|
+    t.string "image_name", limit: 50, null: false
+    t.integer "upvotes", null: false
+    t.integer "downvotes", null: false
+  end
+
   create_table "images", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -20,4 +29,17 @@ ActiveRecord::Schema.define(version: 20171015004908) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "labels", id: false, force: :cascade do |t|
+    t.text "label", null: false
+    t.integer "id_ref", null: false
+  end
+
+  create_table "useraccounts", id: false, force: :cascade do |t|
+    t.string "user_name", limit: 50, null: false
+    t.string "email", limit: 100, null: false
+    t.integer "human_rating", null: false
+    t.string "images_uploaded_id", limit: 10, null: false
+  end
+
+  add_foreign_key "labels", "imageinfo", column: "id_ref", name: "labels_id_ref_fkey"
 end
