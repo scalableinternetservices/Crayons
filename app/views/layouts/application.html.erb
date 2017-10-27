@@ -1,1 +1,30 @@
-<h1>THIS IS NOT RIGHT</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> full_title </title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+  <body>
+
+    <header class="navbar navbar-fixed-top navbar-inverse"
+    </header>
+      <div class="container">
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Help",   '#' %></li>
+            <li><%= link_to "Log in", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <img src="logo.png" alt="Logo">
+    </div>
+  </body>
+</html>
