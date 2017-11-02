@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> full_title </title>
+    <title> I am a robot </title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                                              'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all','data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
@@ -17,14 +17,17 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Help",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
+            <li><%= link_to "Log In",   '#' %></li>
+            <li><%= link_to "Captcha", '#' %></li>
+            <li><%= link_to "Gallery", '#' %></li>
           </ul>
         </nav>
       </div>
     </header>
+    <button onclick="addImage()" id="float_button" title="Add Image">+</button>
     <div class="container">
-      <%=image_tag("logo.png", width:1000, alt: "Logo")%>
+      <center><%=image_tag("logo.png", :height => "50%", :width => "50%", alt: "Logo")%></center>
     </div>
   </body>
+  <script src="button.js"></script>
 </html>
