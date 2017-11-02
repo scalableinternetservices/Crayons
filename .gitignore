@@ -27,8 +27,8 @@
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
-.elasticbeanstalk/*.cfg.yml
-.elasticbeanstalk/*.global.yml
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
 
 # do not track aws credentials
 iamarobot.pem
