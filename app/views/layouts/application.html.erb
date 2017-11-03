@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HelloApp</title>
+    <title> I am a robot </title>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all','data-turbolinks-track': 'reload' %>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+  </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -40,5 +41,25 @@
   </div>
 </footer>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <header class="navbar navbar-fixed-top navbar-inverse"
+    </header>
+      <div class="container">
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Log In",   '#' %></li>
+            <li><%= link_to "Captcha", '#' %></li>
+            <li><%= link_to "Gallery", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <button onclick="addImage()" id="float_button" title="Add Image">+</button>
+    <div class="container">
+      <center><%=image_tag("logo.png", :height => "50%", :width => "50%", alt: "Logo")%></center>
+    </div>
   </body>
+  <script src="button.js"></script>
 </html>

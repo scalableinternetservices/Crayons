@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025221933) do
+ActiveRecord::Schema.define(version: 20171026194100) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "image_infos", force: :cascade do |t|
+    t.integer "ID"
+    t.string "image_name"
+    t.integer "upvotes"
+    t.integer "downvotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "imageinfo", id: :integer, default: nil, force: :cascade do |t|
+    t.string "image_name", limit: 50, null: false
+    t.integer "upvotes", null: false
+    t.integer "downvotes", null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.string "name"
@@ -24,8 +42,29 @@ ActiveRecord::Schema.define(version: 20171025221933) do
     t.string "title"
     t.text "description"
     t.string "file"
+  end
+ 
+  create_table "labels", id: false, force: :cascade do |t|
+    t.text "label", null: false
+    t.integer "id_ref", null: false
+  end
+
+  create_table "useraccounts", id: false, force: :cascade do |t|
+    t.string "user_name", limit: 50, null: false
+    t.string "email", limit: 100, null: false
+    t.integer "human_rating", null: false
+    t.string "images_uploaded_id", limit: 10, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.integer "human_rating"
+    t.string "images_uploaded_id"
+    t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "labels", "imageinfo", column: "id_ref", name: "labels_id_ref_fkey"
 end

@@ -1,0 +1,2 @@
+class ImageInfo < ApplicationRecord
+end

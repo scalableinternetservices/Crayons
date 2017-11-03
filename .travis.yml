@@ -5,7 +5,8 @@ rvm:
 branches:
     only:
         - master
-        - ebdeployment
 script:
     - RAILS_ENV=test bundle exec rake db:schema:load --trace
     - bundle exec rake db:test:prepare
+rvm:
+  - 2.2
