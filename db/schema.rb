@@ -38,15 +38,17 @@ ActiveRecord::Schema.define(version: 20171026194100) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "labels", id: false, force: :cascade do |t|
+    t.text "label", null: false
+    t.integer "id_ref", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "file"
-  end
- 
-  create_table "labels", id: false, force: :cascade do |t|
-    t.text "label", null: false
-    t.integer "id_ref", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "useraccounts", id: false, force: :cascade do |t|
