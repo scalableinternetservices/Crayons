@@ -35,11 +35,7 @@
     <div class="container">
   <%= yield %>
 </div>
-<footer>
-  <div class="container">
-    You will eventually see some images here
-  </div>
-</footer>
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <header class="navbar navbar-fixed-top navbar-inverse"
@@ -47,19 +43,28 @@
       <div class="container">
 
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Log In",   '#' %></li>
-            <li><%= link_to "Captcha", '#' %></li>
-            <li><%= link_to "Gallery", '#' %></li>
+          <ul class="nav navbar-nav navbar-left">
+            <div id="navbar" class="navbar-collapse collapse">
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+              </form>
+            </div><!--/.navbar-collapse -->
+
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Captcha", 'pages/about' %></li>
+            <li><%= link_to "Gallery", 'photos' %></li>
+
           </ul>
         </nav>
       </div>
     </header>
-    <button onclick="addImage()" id="float_button" title="Add Image">+</button>
-    <div class="container">
-      <center><%=image_tag("logo.png", :height => "50%", :width => "50%", alt: "Logo")%></center>
-    </div>
+
   </body>
   <script src="button.js"></script>
 </html>
