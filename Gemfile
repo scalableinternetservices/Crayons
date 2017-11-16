@@ -18,6 +18,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'bootstrap', '~> 4.0.0beta2'
+gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'autoprefixer-rails'
 gem 'pg'
 
