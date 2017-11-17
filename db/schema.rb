@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116233533) do
+ActiveRecord::Schema.define(version: 20171117053921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,16 +51,9 @@ ActiveRecord::Schema.define(version: 20171116233533) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "useraccounts", id: false, force: :cascade do |t|
-    t.string "user_name", limit: 50, null: false
-    t.string "email", limit: 100, null: false
-    t.integer "human_rating", null: false
-    t.string "images_uploaded_id", limit: 10, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "email"
+    t.string "my_email"
     t.integer "human_rating"
     t.string "images_uploaded_id"
     t.string "string"
@@ -70,6 +63,18 @@ ActiveRecord::Schema.define(version: 20171116233533) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "labels", "imageinfo", column: "id_ref", name: "labels_id_ref_fkey"

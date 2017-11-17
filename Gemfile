@@ -22,6 +22,7 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'aws-sdk', '~> 2.3.0'
 gem 'autoprefixer-rails'
 gem 'pg'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '~> 5.1.2'
