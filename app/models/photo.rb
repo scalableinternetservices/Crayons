@@ -8,4 +8,7 @@ class Photo < ApplicationRecord
   validates_attachment :image, presence: true,
   content_type: { content_type: "image/jpeg" },
   size: { in: 0..10.kilobytes }
+  
+#  s3_region: { ENV["aws_region"] }
+  
 end
