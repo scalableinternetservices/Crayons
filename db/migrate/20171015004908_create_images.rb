@@ -4,8 +4,7 @@ class CreateImages < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :description
       t.string :image
-
-      t.timestamps
+      t.timestamps :time
     end
   end
 end
