@@ -4,6 +4,9 @@ class DeviseCreateUserDevises < ActiveRecord::Migration[5.1]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :firstname, null: false, default: ""
+      t.string :lastname, null: false, default: ""
+
 
       ## Recoverable
       t.string   :reset_password_token
@@ -14,10 +17,16 @@ class DeviseCreateUserDevises < ActiveRecord::Migration[5.1]
 
       ## Trackable
       t.integer  :sign_in_count, default: 0, null: false
+      t.integer :human_capital, default:0, null: false
+      t.integer :number_of_images_uploaded, default:0, null:false
+      t.integer :number_of_images_downloaded, default:0, null:false
+
       t.datetime :current_sign_in_at
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+
+
 
       ## Confirmable
       # t.string   :confirmation_token
