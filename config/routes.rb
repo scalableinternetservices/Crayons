@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'annotation/new'
+
   get 'pages/home'
 
   root 'pages#home'
