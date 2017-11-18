@@ -31,8 +31,8 @@
               </div><!--/.navbar-collapse -->
 
             <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Captcha", 'pages/about' %></li>
             <li><a href="/photos">Gallery</a></li>
+            <li><%= link_to 'Upload New Image', new_photo_path %></li>
 
             </form>
           </ul>
@@ -41,8 +41,7 @@
     </header>
 
   <body>
-  <!-- Renders navigation file located at app/views/layouts/_navigation.html.erb -->
-    <%= render "layouts/navigation" %>
+
     <div id="flash">
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
