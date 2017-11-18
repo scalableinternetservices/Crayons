@@ -2,6 +2,7 @@
 <h1>Upload Photo</h1>
 </div>
 
+<body style= "padding-top: 300px">
 <div class="media">
   <% @photos.each do |photo| %>
     <div class="media-left">
@@ -14,5 +15,6 @@
     <div class="media-body">
       <h4 class="media-heading"><%= photo.title %></h4>
     </div>
+  </body>
   <% end %>
 </div>
