@@ -33,6 +33,18 @@ class PhotosController < ApplicationController
    end
  end
 
+ #Add an annotation to an already uploaded image
+ def addtag
+ @photo = Photo.find(params[:id])
+  if @photo.addtag
+   flash[:notice] = "Successfully tagged photo!"
+   redirect_to root_path
+  else
+   flash[:alert] = "Error tagging photo!"
+   render :new
+  end 
+ end
+
  private
 
  #Permitted parameters when creating a photo. This is used for security reasons.
