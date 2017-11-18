@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'captcha/captcha'
+
   get 'pages/home'
 
   root 'pages#home'
