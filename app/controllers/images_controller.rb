@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :addtag]
 
   # GET /images
   # GET /images.json
@@ -57,6 +57,13 @@ class ImagesController < ApplicationController
     @image.destroy
     respond_to do |format|
       format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def addtag
+    respond_to do |format|
+      format.html { redirect_to images_url, notice: 'Placeholder for added tag' }
       format.json { head :no_content }
     end
   end
