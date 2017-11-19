@@ -33,13 +33,20 @@
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Sign In", '/user_devises/sign_in' %>
-            <li><%= link_to "Sign Up", '/user_devises/sign_up' %>
+
+              <% if user_devise_signed_in? %>
+                  <li><%= link_to "Profile", profiles_path(@profile) %>
+                  <li><%= link_to('Logout', destroy_user_devise_session_path, method: :delete) %></li>
+
+                <% else %>
+                  <li><%= link_to('Login', new_user_devise_session_path)  %></li>
+                  <li><%= link_to('Register', new_user_devise_registration_path)  %></li>
+                <% end %>
           </ul>
         </div>
       </div>
     </div>
-  
+
     <div id="flash">
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
