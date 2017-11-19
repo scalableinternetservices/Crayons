@@ -1,13 +1,6 @@
-class Annotation
-  # this class created following example_user.rb tutorial in RailsTutorial book
-  attr_accessor :label
+class Annotation < ApplicationRecord
   
-  def initialize(attributes = {})
-    @label = attributes[:label]
-  end
-  
-  def show
-    "#{@label}"
-  end
+  #refers to several tables and referred by
+  has_and_belongs_to_many :photos
   
 end
