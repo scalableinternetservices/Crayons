@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
   def show
-    @profile = UserDevise.find(params[:id])
+    @profile = UserDevises.find(params[:id])
   end
 end
