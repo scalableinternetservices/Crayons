@@ -1,6 +1,9 @@
-<h1 style= "padding-top: 100px><%= @profile.firstname %> <%= @profile.lastname %></h1>
-<h3>Human Capital</h3>
-<p>Number of photos uploaded:</p>
-<p>Number of photos downloaded:</p>
+<body style= "padding-top: 50px">
+<h1> <%= @profile.firstname %> <%= @profile.lastname %></h1>
+<h3><%= @profile.email %></h3>
+<h3>Human Capital: <%= @profile.human_capital %></h3>
+<p>Number of photos uploaded: <%= @profile.number_of_images_uploaded %></p>
+<p>Number of photos downloaded: <%= @profile.number_of_images_downloaded %></p>
 
 <li><%= link_to "Edit Account", '/user_devises/edit' %>
+</body>
