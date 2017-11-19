@@ -1,7 +1,7 @@
 class AnnotationsController < ApplicationController
   
   def create
-    #@annotation = Annotation.find_or_create_by(annotation_params)
+    @annotation = Annotation.find_or_create_by(annotation_params)
   end
   
   def index
