@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'annotation/new'
+  
+  get 'captcha/captcha'
 
   get 'pages/home'
 
