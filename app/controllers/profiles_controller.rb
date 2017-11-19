@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   def show
-    @profile = UserDevises.find(params[:id])
+    @profile = UserDevise.find(params[:id])
+    puts "firstname!!! #{@profile.firstname}"
   end
 end
