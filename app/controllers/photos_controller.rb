@@ -41,7 +41,6 @@ class PhotosController < ApplicationController
    redirect_to root_path
   else
    flash[:alert] = "Error tagging photo!"
-   render :new
   end 
  end
 
