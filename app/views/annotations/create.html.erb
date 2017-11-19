@@ -1,6 +1,14 @@
-<body style= "padding-top: 100px">
-<h1>Tag this photo!</h1>
+<body style= "padding-top: 50px">
+<h2>Sign up</h2>
+
+<%= form_for :annotations, @annotation, :url => { :action => "create" }, {:class => "annotations"} do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :label %><br />
+    <%= f.text :label, autofocus: true %>
+  </div>
+
+
+<%= render "user_devises/shared/links" %>
 </body>
-
-
-
