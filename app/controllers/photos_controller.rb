@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
   @photo = Photo.new(photo_params)
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
-   redirect_to root_path
+   redirect_to photos_path
   else
    flash[:alert] = "Error adding new photo!"
    render :new

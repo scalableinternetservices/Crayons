@@ -58,10 +58,13 @@ ActiveRecord::Schema.define(version: 20171120015734) do
     t.integer "number_of_images_uploaded", default: 0, null: false
     t.integer "number_of_images_downloaded", default: 0, null: false
     t.integer "human_capital", default: 0, null: false
-    t.integer "number_of_labels_made", :integer, default:0, null: false
-    t.integer "gender", :string, default:""
-    t.integer "birthday", :date
-    t.integer "country", :string, default:""
+    t.integer "number_of_labels_made", default: 0, null: false
+    t.integer "integer", default: 0, null: false
+    t.integer "gender"
+    t.integer "string"
+    t.integer "birthday"
+    t.integer "date"
+    t.integer "country"
     t.index ["email"], name: "index_user_devises_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_devises_on_reset_password_token", unique: true
   end
