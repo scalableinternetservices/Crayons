@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
    render :new
   end
  end
- 
+
  #Destroy action for deleting an already uploaded image
  def destroy
  @photo = Photo.find(params[:id])
@@ -41,7 +41,7 @@ class PhotosController < ApplicationController
  #   redirect_to root_path
  #  else
  #   flash[:alert] = "Error tagging photo!"
- #  end 
+ #  end
  # end
 
  private

@@ -1,4 +1,4 @@
-class CreateHumanCapitols < ActiveRecord::Migration[5.1]
+class CreateHumanCapitals < ActiveRecord::Migration[5.1]
   def change
     create_table :human_capitols do |t|
       t.integer :total, default: 0, null: false

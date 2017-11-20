@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171120015734) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "human_capitols", force: :cascade do |t|
+  create_table "human_capitals", force: :cascade do |t|
     t.integer "total", default: 0, null: false
     t.integer "captcha_score", default: 0, null: false
     t.integer "number_of_images_uploaded", default: 0, null: false
