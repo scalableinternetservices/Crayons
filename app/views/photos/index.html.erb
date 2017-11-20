@@ -7,6 +7,7 @@
 
 <div class="media">
   <% @photos.each do |photo| %>
+    <h4 class="media-heading"><%= photo.title %></h4>
     <div class="media-left">
       <!-- Renders image -->
       <%= link_to image_tag(photo.image.url, class: 'media-object'), photo.image.url, target: '_blank' %>
@@ -18,9 +19,9 @@
       <%= link_to 'Add Tag', {:action=>"new", :controller=>"annotations"}, {:class => 'btn btn-info', :role => 'button'} %>
       <p style= "padding-top: 5px"></p>
     </div>
-    
+
     <div class="media-body">
-      <h4 class="media-heading"><%= photo.title %></h4>
+
       <p>Where is my title?</p>
     </div>
   <% end %>
