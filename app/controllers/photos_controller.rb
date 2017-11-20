@@ -13,6 +13,7 @@ class PhotosController < ApplicationController
  #Create action ensures that submitted photo gets created if it meets the requirements
  def create
   @photo = Photo.new(photo_params)
+ 
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
    redirect_to photos_path
@@ -34,15 +35,15 @@ class PhotosController < ApplicationController
  end
 
  #Add an annotation to an already uploaded image
- # def addtag
- # @photo = Photo.find(params[:id])
- #  if @photo.addtag
- #   flash[:notice] = "Successfully tagged photo!"
- #   redirect_to root_path
- #  else
- #   flash[:alert] = "Error tagging photo!"
- #  end
- # end
+ def addtag
+ @photo = Photo.find(params[:id])
+   if @photo.addtag
+    flash[:notice] = "Successfully tagged photo!"
+    redirect_to root_path
+   else
+    flash[:alert] = "Error tagging photo!"
+   end
+ end
 
  private
 

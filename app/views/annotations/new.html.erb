@@ -5,6 +5,7 @@
 
 <%= form_for @annotation,  url: {controller: "annotations" , action: "create"} do |f| %>
   <%= f.text_field :label %>
+  
   <%= f.submit "Create" %>
 <% end %>
 
