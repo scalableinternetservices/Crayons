@@ -17,14 +17,16 @@
       <p style= "padding-top: 2px"></p>
       <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
       
-      <% ann = Annotation.create(params[:photo_id]) %>
-      <%= form_for ann,  url: photos_path do |f| %>
+      <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
+      <% new_ann = Annotation.create(params[:photo_id]) %>
+      <%= form_for new_ann,  url: annotations_path(params[:photo_id]) do |f| %>
         <%= f.text_field :label %>
         <%= f.submit "Tag this photo!" %>
+        
       <% end %>
-      <% photo.annotations << ann # this line might be unnecessary %>
+      <% photo.annotations << new_ann # this line might be unnecessary %>
       
-      <%= link_to 'Add Tag', {:action=>"new", :controller=>"annotations"}, {:class => 'btn btn-info', :role => 'button'}  %>
+      <!--%= link_to 'Add Tag', {:action=>"new", :controller=>"annotations"}, {:class => 'btn btn-info', :role => 'button'}  %-->
       <p style= "padding-top: 5px"></p>
     </div>
 

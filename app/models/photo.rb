@@ -10,8 +10,8 @@ class Photo < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
     #Validates file, file type and file size
   validates_attachment :image, presence: true,
-  content_type: { content_type: "image/jpeg" },
-  size: { in: 0..10.kilobytes },
+  content_type: { content_type: "image/png" },
+  size: { in: 0..100.kilobytes },
 
 
   :s3_region => 'us-west-2'
