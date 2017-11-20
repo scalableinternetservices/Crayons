@@ -1,13 +1,11 @@
 
 <body style= "padding-top: 50px">
 
-<h1>Annotation#new</h1>
-<p>Find me find me find me in app/views/annotation/new.html.erb</p>
+<h1>Tag this photo!</h1>
 
-<% form_tag(annotations_path, :method => "create") do %>
-  <%= label_tag(:q, "Enter your tag:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Tag this photo") %>
+<%= form_for @annotation, url: {controller: "photos" , action: "index"}, html: {class: "form_group"} do |f| %>
+  <%= f.text_field :label %>
+  <%= f.submit "Create" %>
 <% end %>
 
 </body>
