@@ -5,6 +5,11 @@ class AddDetailsToUserDevises < ActiveRecord::Migration[5.1]
     add_column :user_devises, :number_of_images_uploaded, :integer, default:0, null:false
     add_column :user_devises, :number_of_images_downloaded, :integer, default:0, null:false
     add_column :user_devises, :human_capital, :integer, default:0, null: false
+    add_column :user_devises, :number_of_labels_made, :integer, default:0, null: false
+    add_column :user_devises, :gender, :string, default:""
+    add_column :user_devises, :birthday, :date
+    add_column :user_devises, :country, :string, default:""
+    
   end
 
 end

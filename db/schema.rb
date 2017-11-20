@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119083457) do
+ActiveRecord::Schema.define(version: 20171120015734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20171119083457) do
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "human_capitols", force: :cascade do |t|
+    t.integer "total", default: 0, null: false
+    t.integer "captcha_score", default: 0, null: false
+    t.integer "number_of_images_uploaded", default: 0, null: false
+    t.integer "number_of_images_downloaded", default: 0, null: false
+    t.integer "number_of_labels_made", default: 0, null: false
+    t.integer "membership_length", default: 0, null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -49,6 +58,10 @@ ActiveRecord::Schema.define(version: 20171119083457) do
     t.integer "number_of_images_uploaded", default: 0, null: false
     t.integer "number_of_images_downloaded", default: 0, null: false
     t.integer "human_capital", default: 0, null: false
+    t.integer "number_of_labels_made", :integer, default:0, null: false
+    t.integer "gender", :string, default:""
+    t.integer "birthday", :date
+    t.integer "country", :string, default:""
     t.index ["email"], name: "index_user_devises_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_devises_on_reset_password_token", unique: true
   end
