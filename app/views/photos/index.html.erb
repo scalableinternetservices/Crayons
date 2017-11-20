@@ -16,11 +16,13 @@
       <!-- Button to delete image -->
       <p style= "padding-top: 2px"></p>
       <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
-     
-      <%= form_for photo.annotations,  url: {controller: "annotations" , action: "create"} do |f| %>
-      <%= f.text_field :label %>
-      <%= f.submit "Create" %>
+      
+      <% ann = Annotation.create(params[:photo_id]) %>
+      <%= form_for ann,  url: photos_path do |f| %>
+        <%= f.text_field :label %>
+        <%= f.submit "Tag this photo!" %>
       <% end %>
+      <% photo.annotations << ann # this line might be unnecessary %>
       
       <%= link_to 'Add Tag', {:action=>"new", :controller=>"annotations"}, {:class => 'btn btn-info', :role => 'button'}  %>
       <p style= "padding-top: 5px"></p>

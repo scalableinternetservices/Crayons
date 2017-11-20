@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :user_devises
+  
   # resources :profiles
+  
   get '/profiles/:id', to: 'profiles#show', as: 'profile'
 
   get 'captcha/captcha'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   root to: "photos#index"
 
   resources :profiles
+  
   resources :annotations
 
   resources :photos

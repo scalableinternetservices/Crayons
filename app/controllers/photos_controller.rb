@@ -39,7 +39,7 @@ class PhotosController < ApplicationController
  @photo = Photo.find(params[:id])
    if @photo.addtag
     flash[:notice] = "Successfully tagged photo!"
-    redirect_to root_path
+    redirect_to photos_path
    else
     flash[:alert] = "Error tagging photo!"
    end
