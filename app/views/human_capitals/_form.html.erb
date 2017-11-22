@@ -1,0 +1,47 @@
+<%= form_with(model: human_capital, local: true) do |form| %>
+  <% if human_capital.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(human_capital.errors.count, "error") %> prohibited this human_capital from being saved:</h2>
+
+      <ul>
+      <% human_capital.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :total %>
+    <%= form.number_field :total, id: :human_capital_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :captcha_score %>
+    <%= form.number_field :captcha_score, id: :human_capital_captcha_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_of_images_uploaded %>
+    <%= form.number_field :number_of_images_uploaded, id: :human_capital_number_of_images_uploaded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_of_images_downloaded %>
+    <%= form.number_field :number_of_images_downloaded, id: :human_capital_number_of_images_downloaded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_of_labels_made %>
+    <%= form.number_field :number_of_labels_made, id: :human_capital_number_of_labels_made %>
+  </div>
+
+  <div class="field">
+    <%= form.label :membership_length %>
+    <%= form.number_field :membership_length, id: :human_capital_membership_length %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

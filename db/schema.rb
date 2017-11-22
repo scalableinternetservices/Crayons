@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120053656) do
+ActiveRecord::Schema.define(version: 20171122001315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20171120053656) do
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_devise_id"
+    t.index ["user_devise_id"], name: "index_annotations_on_user_devise_id"
   end
 
   create_table "annotations_photos", id: false, force: :cascade do |t|
@@ -27,12 +29,16 @@ ActiveRecord::Schema.define(version: 20171120053656) do
   end
 
   create_table "human_capitals", force: :cascade do |t|
-    t.integer "total", default: 0, null: false
-    t.integer "captcha_score", default: 0, null: false
-    t.integer "number_of_images_uploaded", default: 0, null: false
-    t.integer "number_of_images_downloaded", default: 0, null: false
-    t.integer "number_of_labels_made", default: 0, null: false
-    t.integer "membership_length", default: 0, null: false
+    t.integer "total"
+    t.integer "captcha_score"
+    t.integer "number_of_images_uploaded"
+    t.integer "number_of_images_downloaded"
+    t.integer "number_of_labels_made"
+    t.integer "membership_length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_devise_id"
+    t.index ["user_devise_id"], name: "index_human_capitals_on_user_devise_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -43,6 +49,8 @@ ActiveRecord::Schema.define(version: 20171120053656) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.bigint "user_devise_id"
+    t.index ["user_devise_id"], name: "index_photos_on_user_devise_id"
   end
 
   create_table "user_devises", force: :cascade do |t|
@@ -74,4 +82,7 @@ ActiveRecord::Schema.define(version: 20171120053656) do
     t.index ["reset_password_token"], name: "index_user_devises_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "annotations", "user_devises"
+  add_foreign_key "human_capitals", "user_devises"
+  add_foreign_key "photos", "user_devises"
 end
