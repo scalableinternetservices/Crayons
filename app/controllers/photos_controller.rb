@@ -5,7 +5,7 @@ class PhotosController < ApplicationController
   @photos = Photo.order('created_at')
  end
 
- #New action for creating a new photo
+ #New action for creating a new photo object with blank parameters?
  def new
   @photo = Photo.new
  end
@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
    redirect_to photos_path
   else
    flash[:alert] = "Error adding new photo!"
-   render :new
+   render :new # this says to render the "new.html.erb" page - to stay on the new photo page so user can try again.
   end
  end
 
@@ -31,17 +31,6 @@ class PhotosController < ApplicationController
      redirect_to photos_path
    else
      flash[:alert] = "Error deleting photo!"
-   end
- end
-
- #Add an annotation to an already uploaded image
- def addtag
- @photo = Photo.find(params[:id])
-   if @photo.addtag
-    flash[:notice] = "Successfully tagged photo!"
-    redirect_to photos_path
-   else
-    flash[:alert] = "Error tagging photo!"
    end
  end
 
