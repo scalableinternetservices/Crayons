@@ -1,0 +1,2 @@
+== 20171117203119 CreatePhotos: migrating =====================================
+-- create_table(:photos)
