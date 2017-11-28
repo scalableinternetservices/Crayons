@@ -4,7 +4,7 @@ class Photo < ApplicationRecord
   has_and_belongs_to_many :annotations
 
   #validations
-  validates_presence_of :title
+  #validates_presence_of :title
   
   mount_uploader :image, ImageUploader
   
