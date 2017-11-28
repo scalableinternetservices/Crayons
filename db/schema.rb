@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 20171128040833) do
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_devise_id"
+    t.index ["user_devise_id"], name: "index_annotations_on_user_devise_id"
+  end
+
+  create_table "annotations_photos", id: false, force: :cascade do |t|
+    t.bigint "annotation_id", null: false
+    t.bigint "photo_id", null: false
+  end
+
+  create_table "human_capitals", force: :cascade do |t|
+    t.integer "total"
+    t.integer "captcha_score"
+    t.integer "number_of_images_uploaded"
+    t.integer "number_of_images_downloaded"
+    t.integer "number_of_labels_made"
+    t.integer "membership_length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_devise_id"
+    t.index ["user_devise_id"], name: "index_human_capitals_on_user_devise_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -30,6 +50,8 @@ ActiveRecord::Schema.define(version: 20171128040833) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "image"
+    t.bigint "user_devise_id"
+    t.index ["user_devise_id"], name: "index_photos_on_user_devise_id"
   end
 
   create_table "user_devises", force: :cascade do |t|
@@ -50,8 +72,18 @@ ActiveRecord::Schema.define(version: 20171128040833) do
     t.integer "number_of_images_uploaded", default: 0, null: false
     t.integer "number_of_images_downloaded", default: 0, null: false
     t.integer "human_capital", default: 0, null: false
+    t.integer "number_of_labels_made", default: 0, null: false
+    t.integer "integer", default: 0, null: false
+    t.integer "gender"
+    t.integer "string"
+    t.integer "birthday"
+    t.integer "date"
+    t.integer "country"
     t.index ["email"], name: "index_user_devises_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_devises_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "annotations", "user_devises"
+  add_foreign_key "human_capitals", "user_devises"
+  add_foreign_key "photos", "user_devises"
 end

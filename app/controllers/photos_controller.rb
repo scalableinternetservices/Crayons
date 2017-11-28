@@ -5,7 +5,7 @@ class PhotosController < ApplicationController
   @photos = Photo.order('created_at')
  end
 
- #New action for creating a new photo
+ #New action for creating a new photo object with blank parameters?
  def new
   @photo = Photo.new
  end
@@ -13,36 +13,26 @@ class PhotosController < ApplicationController
  #Create action ensures that submitted photo gets created if it meets the requirements
  def create
   @photo = Photo.new(photo_params)
+ 
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
-   redirect_to root_path
+   redirect_to photos_path
   else
    flash[:alert] = "Error adding new photo!"
-   render :new
+   render :new # this says to render the "new.html.erb" page - to stay on the new photo page so user can try again.
   end
  end
- 
+
  #Destroy action for deleting an already uploaded image
  def destroy
  @photo = Photo.find(params[:id])
    if @photo.destroy
      flash[:notice] = "Successfully deleted photo!"
-     redirect_to root_path
+     redirect_to photos_path
    else
      flash[:alert] = "Error deleting photo!"
    end
  end
-
- #Add an annotation to an already uploaded image
- # def addtag
- # @photo = Photo.find(params[:id])
- #  if @photo.addtag
- #   flash[:notice] = "Successfully tagged photo!"
- #   redirect_to root_path
- #  else
- #   flash[:alert] = "Error tagging photo!"
- #  end 
- # end
 
  private
 

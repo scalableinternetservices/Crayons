@@ -1,2 +1,12 @@
-<h1>Annotation#new</h1>
-<p>Find me in app/views/annotation/new.html.erb</p>
+
+<body style= "padding-top: 50px">
+
+<h1>Tag this photo!</h1>
+
+<%= form_for @annotation,  url: {controller: "annotations" , action: "create"} do |f| %>
+  <%= f.text_field :label %>
+  
+  <%= f.submit "Create" %>
+<% end %>
+
+</body>

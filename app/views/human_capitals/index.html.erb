@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Human Capitals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Captcha score</th>
+      <th>Number of images uploaded</th>
+      <th>Number of images downloaded</th>
+      <th>Number of labels made</th>
+      <th>Membership length</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @human_capitals.each do |human_capital| %>
+      <tr>
+        <td><%= human_capital.total %></td>
+        <td><%= human_capital.captcha_score %></td>
+        <td><%= human_capital.number_of_images_uploaded %></td>
+        <td><%= human_capital.number_of_images_downloaded %></td>
+        <td><%= human_capital.number_of_labels_made %></td>
+        <td><%= human_capital.membership_length %></td>
+        <td><%= link_to 'Show', human_capital %></td>
+        <td><%= link_to 'Edit', edit_human_capital_path(human_capital) %></td>
+        <td><%= link_to 'Destroy', human_capital, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Human Capital', new_human_capital_path %>
