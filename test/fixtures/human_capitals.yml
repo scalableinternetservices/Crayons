@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 1
+  captcha_score: 1
+  number_of_images_uploaded: 1
+  number_of_images_downloaded: 1
+  number_of_labels_made: 1
+  membership_length: 1
+
+two:
+  total: 1
+  captcha_score: 1
+  number_of_images_uploaded: 1
+  number_of_images_downloaded: 1
+  number_of_labels_made: 1
+  membership_length: 1
