@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
  #Create action ensures that submitted photo gets created if it meets the requirements
  def create
   @photo = Photo.new(photo_params)
- 
+
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
    redirect_to photos_path
@@ -38,7 +38,7 @@ class PhotosController < ApplicationController
 
  #Permitted parameters when creating a photo. This is used for security reasons.
  def photo_params
-  params.require(:photo).permit(:title, :image)
+  params.require(:photo).permit(:title, :url)
  end
 
 end
