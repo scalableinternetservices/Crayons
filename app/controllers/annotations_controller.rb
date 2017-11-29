@@ -1,7 +1,7 @@
 class AnnotationsController < ApplicationController
 
   def update
-    @annotation = Annotation.find_or_create_by(annotation_params[:annotation])
+    @annotation = Annotation.find_by(annotation_params[:annotation])
     @annotation.label = annotation_params[:label]
     if @annotation.save
       #if annotation successfully created
@@ -12,10 +12,10 @@ class AnnotationsController < ApplicationController
     #flash[:notice] = "You tagged this photo!"
     #redirect_to photo_path
   end
-  
+
   def create # same method as "update", really
-    @annotation = Annotation.find_or_create_by(annotation_params[:annotation])
-    
+    @annotation = Annotation.create(annotation_params[:annotation])
+
     if @annotation.save
       #if annotation successfully created
       redirect_to photos_path , notice: "You tagged a photo"
@@ -23,12 +23,12 @@ class AnnotationsController < ApplicationController
       render action: "new"
       # what does this statement do?
     end
-    
+
   end
 
   def index
     @annotations = Annotations.order('created_at')
-    
+
     # by default renders "index.html.erb" unless this behavior is overridden (like in update)
   end
 
