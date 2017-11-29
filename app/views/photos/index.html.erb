@@ -28,7 +28,8 @@
           <!-- # this isn't saving the label to the table ann entry -->
         <%= f.text_field :label %>
         <%= f.submit 'Tag this photo!', class: 'btn btn-default' %>
-        <% photo.annotations << @new_ann # this line might be unnecessary %>
+        <% @thiselem = " " %>
+        <% photo.annotations << @new_ann %>
       <% end %>
       </div>
 
@@ -36,9 +37,10 @@
     </div>
 
     <div class="media-body">
-      <%= photo.annotations.each do |a| %>
+      <% photo.annotations.each do |a| %>
         <% if a.label != nil %>
-          <%= a.label.to_s %>
+          <% @thiselem << " " << a.label.to_s %>
+          <%= @thiselem %>
         <% end %>
       <% end %>
 
