@@ -11,7 +11,7 @@ class Photo < ApplicationRecord
     #Validates file, file type and file size
   validates_attachment :image, presence: true,
   content_type: { content_type: "image/png" },
-  size: { in: 0..100.kilobytes },
+  size: { in: 0..1000.kilobytes },
 
 
   :s3_region => 'us-west-2'
