@@ -13,11 +13,11 @@ class AnnotationsController < ApplicationController
     #redirect_to photo_path
   end
   
-  def create # same method as "update", really
+  def create # this adds the record to the database
     @annotation = Annotation.find_or_create_by(annotation_params[:annotation])
     
     if @annotation.save
-      #if annotation successfully created
+      #if annotation successfully created - saved in database
       redirect_to photos_path , notice: "You tagged a photo"
     else
       render action: "new"
@@ -32,7 +32,7 @@ class AnnotationsController < ApplicationController
     # by default renders "index.html.erb" unless this behavior is overridden (like in update)
   end
 
-  def new
+  def new #this just creates the object, doesn't necessarily add it to the database
     @annotation = Annotation.new(annotation_params)
     # by default renders "new.html.erb" unless this behavior is overridden (like in update)
   end
