@@ -81,7 +81,7 @@ Rails.application.configure do
       s3_region: 'us-west-2',
       s3_permissions: :private,
       s3_credentials: {
-        s3_host_name: ENV["AWS_S3_HOST_NAME"],
+        s3_host_name: 's3-us-west-2.amazonaws.com',
         bucket: 'elasticbeanstalk-us-west-2-671946291905',
         access_key_id: ENV["AWS_ACCESS_KEY_ID"],
         secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
