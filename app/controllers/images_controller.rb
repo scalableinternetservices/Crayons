@@ -61,12 +61,12 @@ class ImagesController < ApplicationController
     end
   end
 
-  def addtag
-    respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Placeholder for added tag' }
-      format.json { head :no_content }
-    end
-  end
+  # def addtag
+  #   respond_to do |format|
+  #     format.html { redirect_to images_url, notice: 'Placeholder for added tag' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

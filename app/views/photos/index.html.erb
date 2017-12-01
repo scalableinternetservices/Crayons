@@ -6,20 +6,61 @@
 <body style= "padding-top: 50px">
 
 <div class="media">
+
+
   <% @photos.each do |photo| %>
+    <h4 class="media-heading"><%= photo.title %></h4>
     <div class="media-left">
       <!-- Renders image -->
       <%= link_to image_tag(photo.image.url, class: 'media-object'), photo.image.url, target: '_blank' %>
+      <!-- Renders Annotation-->
+      <!-- rendering stuff here photo.annotation.url, class: 'text-field?'-->
       <!-- Button to delete image -->
+      <p style= "padding-top: 2px"></p>
       <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
-      <%= link_to 'Add Tag', {controller: 'annotations', action: 'create'}, {:class => 'btn btn-info', :role => 'button'} %>
 
+      <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
+
+      <%# @new_ann = Annotation.create(params[:photo_id]) %>
+      
+      <%#  binding.pry %>
+      <div class="form-group">
+      <%# new_ann = Annotation.new() #just a new ann object%> 
+        
+      <%= form_with scope: :annotation, url: annotations_path do |f| %>
+        <%= f.hidden_field :photo_id, value: photo.id %>  
+        <%= f.text_field :label %>
+        <%= f.submit 'Tag this photo!', class: 'btn btn-default' %>
+        
+        <%# photo.annotations << new_ann %>
+        <%#  binding.pry %>
+      <% end %>
+      </div>
+
+      <p style= "padding-top: 5px"></p>
+    </div>
     
-    </div>
     <div class="media-body">
-      <h4 class="media-heading"><%= photo.title %></h4>
+
+
+      <% photo.annotations.each do |a| %>
+          <div class="form-group">
+          <%= a.label.to_s %>
+            <%= form_with scope: :annotation, method: 'get', url: upvote_path do |f| %>
+                <%= f.hidden_field :photo_id, value: photo.id %>
+                <%= f.submit 'Upvote', class: 'btn btn-default' %>
+            <% end %>
+
+            <%= form_with scope: :annotation, method: 'get', url: downvote_path do |f| %>
+                <%= f.hidden_field :photo_id, value: photo.id %>
+                <%= f.submit 'Downvote', class: 'btn btn-default' %>
+            <% end %>
+
+          </div>
+      <% end %>
+
     </div>
-  </body>
+
   <% end %>
 </div>
 </body>
