@@ -14,15 +14,9 @@ class AnnotationsController < ApplicationController
   end
   
   def create # this adds the record to the database
-    @annotation = Annotation.find_or_create_by(annotation_params[:annotation])
-    
-    if @annotation.save
-      #if annotation successfully created - saved in database
-      redirect_to photos_path , notice: "You tagged a photo"
-    else
-      render action: "new"
-      # what does this statement do?
-    end
+    @annotation = Annotation.find_or_create_by(annotation_params)
+    Photo.find(params["annotation"]["photo_id"]).annotations << @annotation
+    redirect_to photos_path
     
   end
 

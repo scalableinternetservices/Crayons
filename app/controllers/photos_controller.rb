@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
 #Index action, photos gets listed in the order at which they were created
  def index
   @photos = Photo.order('created_at')
+  # have annotation creation done here?
  end
 
  #New action for creating a new photo object with blank parameters?

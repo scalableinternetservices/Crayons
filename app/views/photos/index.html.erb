@@ -21,30 +21,30 @@
 
       <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
 
-      <% @new_ann = Annotation.create(params[:photo_id]) %>
-         <!-- #does this recreate a single ann for the photoid? Since photoid is the only param being passed, won't find_or_create_by just find the old ann created for that id and replace it? -->
+      <%# @new_ann = Annotation.create(params[:photo_id]) %>
+      
+      <%#  binding.pry %>
       <div class="form-group">
-      <%= form_for @new_ann do |f| %>
-          <!-- # this isn't saving the label to the table ann entry -->
+      <%# new_ann = Annotation.new() #just a new ann object%> 
+        
+      <%= form_with scope: :annotation, url: annotations_path do |f| %>
+        <%= f.hidden_field :photo_id, value: photo.id %>  
         <%= f.text_field :label %>
         <%= f.submit 'Tag this photo!', class: 'btn btn-default' %>
         
-        <% photo.annotations << @new_ann %>
+        <%# photo.annotations << new_ann %>
+        <%#  binding.pry %>
       <% end %>
       </div>
 
       <p style= "padding-top: 5px"></p>
     </div>
-
+    
     <div class="media-body">
+      <p>tags here?</p>
       <% photo.annotations.each do |a| %>
-        <% if a.label != nil %>
-          <%= a.label.to_s %>
-        
-        <% end %>
+        <%= a.label.to_s %>
       <% end %>
-
-
     </div>
 
   <% end %>
