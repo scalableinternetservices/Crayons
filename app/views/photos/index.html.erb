@@ -41,10 +41,24 @@
     </div>
     
     <div class="media-body">
-      <p>tags here?</p>
+
+
       <% photo.annotations.each do |a| %>
-        <%= a.label.to_s %>
+          <div class="form-group">
+          <%= a.label.to_s %>
+            <%= form_with scope: :annotation, method: 'get', url: upvote_path do |f| %>
+                <%= f.hidden_field :photo_id, value: photo.id %>
+                <%= f.submit 'Upvote', class: 'btn btn-default' %>
+            <% end %>
+
+            <%= form_with scope: :annotation, method: 'get', url: downvote_path do |f| %>
+                <%= f.hidden_field :photo_id, value: photo.id %>
+                <%= f.submit 'Downvote', class: 'btn btn-default' %>
+            <% end %>
+
+          </div>
       <% end %>
+
     </div>
 
   <% end %>

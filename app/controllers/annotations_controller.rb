@@ -26,7 +26,28 @@ class AnnotationsController < ApplicationController
     # by default renders "index.html.erb" unless this behavior is overridden (like in update)
   end
 
+  def upvote
+    @annotation = Annotation.find_by(annotation_params)
+    @annotation.upvotes += 1
+    if @annotation.save
+      #if annotation successfully created
+      redirect_to photos_path , notice: "You upvoted this tag"
+    end
+
+  end
+
+  def downvote
+    @annotation = Annotation.find_by(annotation_params)
+    @annotation.downvotes += 1
+
+    if @annotation.save
+      #if annotation successfully created
+      redirect_to photos_path , notice: "You downvoted this tag"
+    end
+  end
+
   def new #this just creates the object, doesn't necessarily add it to the database
+    binding.pry
     @annotation = Annotation.new(annotation_params)
     # by default renders "new.html.erb" unless this behavior is overridden (like in update)
   end
