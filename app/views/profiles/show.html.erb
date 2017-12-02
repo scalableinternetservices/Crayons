@@ -29,6 +29,7 @@
           <!-- rendering stuff here photo.annotation.url, class: 'text-field?'-->
           <!-- Button to delete image -->
           <p style= "padding-top: 2px"></p>
+          <%= link_to 'Download', photo.image(:original), download: "User_#{photo.user_devises_id}_image", class: 'btn btn-danger'%>
           <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
 
           <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
