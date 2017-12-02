@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20171202083326) do
     t.string "country", default: ""
     t.integer "number_of_upvotes", default: 0
     t.integer "number_of_downvotes", default: 0
+    t.integer "number_of_upvotes_on_tag", default: 0
+    t.integer "number_of_downvotes_on_tag", default: 0
     t.index ["email"], name: "index_user_devises_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_devises_on_reset_password_token", unique: true
   end

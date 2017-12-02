@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :human_capitals
-  get 'human_capitals/worth'
 
   devise_for :user_devises
 

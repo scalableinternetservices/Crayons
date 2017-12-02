@@ -37,6 +37,12 @@ class AnnotationsController < ApplicationController
     @annotation = Annotation.find_by(annotation_params)
     @user = UserDevise.find(current_user_devise.id)
     @user.update_column(:number_of_upvotes, +1)
+
+    @taguser = @annotation.user_devises_id
+
+    @tagnotme = UserDevise.find(@taguser)
+    @tagnotme.update_column(:number_of_upvotes_on_tag, +1)
+
     if @annotation.save
       #if annotation successfully created
       redirect_to photos_path , notice: "You upvoted this tag"
@@ -48,6 +54,12 @@ class AnnotationsController < ApplicationController
     @annotation = Annotation.find_by(annotation_params)
     @user = UserDevise.find(current_user_devise.id)
     @user.update_column(:number_of_downvotes, +1)
+
+    @taguser = @annotation.user_devises_id
+
+    @tagnotme = UserDevise.find(@taguser)
+    @tagnotme.update_column(:number_of_upvotes_on_tag, -1)
+
     if @annotation.save
       #if annotation successfully created
       redirect_to photos_path , notice: "You downvoted this tag"
