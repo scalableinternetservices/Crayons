@@ -14,7 +14,12 @@ class PhotosController < ApplicationController
  #Create action ensures that submitted photo gets created if it meets the requirements
  def create
   @photo = Photo.new(photo_params)
- 
+
+  @photo.user_devises_id = current_user_devise.id
+
+  @user = UserDevise.find(current_user_devise.id)
+  @user.update_column(:number_of_images_uploaded, +1)
+
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
    redirect_to photos_path

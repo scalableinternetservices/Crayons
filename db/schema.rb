@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202062718) do
+ActiveRecord::Schema.define(version: 20171202083326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20171202062718) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.bigint "user_devises_id"
+    t.index ["user_devises_id"], name: "index_photos_on_user_devises_id"
   end
 
   create_table "user_devises", force: :cascade do |t|
@@ -69,4 +71,5 @@ ActiveRecord::Schema.define(version: 20171202062718) do
   end
 
   add_foreign_key "annotations", "user_devises", column: "user_devises_id"
+  add_foreign_key "photos", "user_devises", column: "user_devises_id"
 end

@@ -17,10 +17,10 @@ class AnnotationsController < ApplicationController
   def create # this adds the record to the database
     @annotation = Annotation.find_or_create_by(annotation_params)
     @annotation.user_devises_id = current_user_devise.id
-    binding.pry
+
     @user = UserDevise.find(current_user_devise.id)
     @user.update_column(:number_of_labels_made, +1)
-    binding.pry
+
     Photo.find(params["annotation"]["photo_id"]).annotations << @annotation
 
     redirect_to photos_path
@@ -35,7 +35,6 @@ class AnnotationsController < ApplicationController
 
   def upvote
     @annotation = Annotation.find_by(annotation_params)
-    @annotation.upvotes += 1
     @user = UserDevise.find(current_user_devise.id)
     @user.update_column(:number_of_upvotes, +1)
     if @annotation.save
@@ -47,7 +46,6 @@ class AnnotationsController < ApplicationController
 
   def downvote
     @annotation = Annotation.find_by(annotation_params)
-    @annotation.downvotes += 1
     @user = UserDevise.find(current_user_devise.id)
     @user.update_column(:number_of_downvotes, +1)
     if @annotation.save
