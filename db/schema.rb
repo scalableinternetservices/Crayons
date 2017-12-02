@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201083457) do
+ActiveRecord::Schema.define(version: 20171202062718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,28 +19,15 @@ ActiveRecord::Schema.define(version: 20171201083457) do
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_devise_id"
     t.integer "upvotes", default: 0, null: false
     t.integer "downvotes", default: 0, null: false
-    t.index ["user_devise_id"], name: "index_annotations_on_user_devise_id"
+    t.bigint "user_devises_id"
+    t.index ["user_devises_id"], name: "index_annotations_on_user_devises_id"
   end
 
   create_table "annotations_photos", id: false, force: :cascade do |t|
     t.bigint "annotation_id", null: false
     t.bigint "photo_id", null: false
-  end
-
-  create_table "human_capitals", force: :cascade do |t|
-    t.integer "total"
-    t.integer "captcha_score"
-    t.integer "number_of_images_uploaded"
-    t.integer "number_of_images_downloaded"
-    t.integer "number_of_labels_made"
-    t.integer "membership_length"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_devise_id"
-    t.index ["user_devise_id"], name: "index_human_capitals_on_user_devise_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -51,41 +38,35 @@ ActiveRecord::Schema.define(version: 20171201083457) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.bigint "user_devise_id"
-    t.string "url"
-    t.index ["user_devise_id"], name: "index_photos_on_user_devise_id"
   end
 
   create_table "user_devises", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "firstname", default: "", null: false
+    t.string "lastname", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
+    t.integer "human_capital", default: 0, null: false
+    t.integer "number_of_images_uploaded", default: 0, null: false
+    t.integer "number_of_images_downloaded", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "firstname", null: false
-    t.string "lastname", null: false
-    t.integer "number_of_images_uploaded", default: 0, null: false
-    t.integer "number_of_images_downloaded", default: 0, null: false
-    t.integer "human_capital", default: 0, null: false
     t.integer "number_of_labels_made", default: 0, null: false
-    t.integer "integer", default: 0, null: false
-    t.integer "gender"
-    t.integer "string"
-    t.integer "birthday"
-    t.integer "date"
-    t.integer "country"
+    t.string "gender", default: ""
+    t.date "birthday"
+    t.string "country", default: ""
+    t.integer "number_of_upvotes", default: 0
+    t.integer "number_of_downvotes", default: 0
     t.index ["email"], name: "index_user_devises_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_devises_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "annotations", "user_devises"
-  add_foreign_key "human_capitals", "user_devises"
-  add_foreign_key "photos", "user_devises"
+  add_foreign_key "annotations", "user_devises", column: "user_devises_id"
 end

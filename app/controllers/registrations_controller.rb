@@ -16,6 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
       return render :json => {:success => false}
     end
+
   end
 
   # Signs in a user on sign up. You can overwrite this method in your own
