@@ -2,6 +2,7 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 
+=begin
 require 'faker'
 
 10.times {
@@ -32,6 +33,7 @@ require 'faker'
   )
   annotation.save!
 }
+=end
 
 list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png",
                "http://archive-media-0.nyafuu.org/vp/image/1368/67/1368673826385.png",
@@ -59,12 +61,12 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
                "https://s-media-cache-ak0.pinimg.com/originals/ec/47/56/ec47566ba72535de038174b1aefdea1f.png"
 ]
 
-25.times {
+1000.times {
 
   photo = Photo.new(
       :title => Faker::Pokemon.name,
       :image_file_name => "pokemon.png",
-      :user_devises_id => rand(1..10),
+      :user_devises_id => 21,
       :image => list_images[rand(0..23)]
   )
 
