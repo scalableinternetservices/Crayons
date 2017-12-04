@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :human_capitals
-  get 'human_capitals/worth'
 
   devise_for :user_devises
-  
+
   # resources :profiles
   
   get '/profiles/:id', to: 'profiles#show', as: 'profile'
@@ -11,6 +9,10 @@ Rails.application.routes.draw do
   get 'captcha/captcha'
 
   get 'pages/home'
+
+  get "/annotations/upvote " => "annotations#upvote", :as => 'upvote'
+
+  get "/annotations/downvote " => "annotations#downvote", :as => 'downvote'
 
   root 'pages#home'
 

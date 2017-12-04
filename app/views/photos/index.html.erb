@@ -17,33 +17,48 @@
       <!-- rendering stuff here photo.annotation.url, class: 'text-field?'-->
       <!-- Button to delete image -->
       <p style= "padding-top: 2px"></p>
+      <%= link_to 'Download', photo.image(:original), download: "User_#{photo.user_devises_id}_image", class: 'btn btn-danger'%>
       <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
 
       <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
 
-      <% @new_ann = Annotation.create(params[:photo_id]) %>
-         <!-- #does this recreate a single ann for the photoid? Since photoid is the only param being passed, won't find_or_create_by just find the old ann created for that id and replace it? -->
+      <%# @new_ann = Annotation.create(params[:photo_id]) %>
+      
+      <%#  binding.pry %>
       <div class="form-group">
-      <%= form_for @new_ann do |f| %>
-          <!-- # this isn't saving the label to the table ann entry -->
+      <%# new_ann = Annotation.new() #just a new ann object%> 
+        
+      <%= form_with scope: :annotation, url: annotations_path do |f| %>
+        <%= f.hidden_field :photo_id, value: photo.id %>  
         <%= f.text_field :label %>
         <%= f.submit 'Tag this photo!', class: 'btn btn-default' %>
-        <% @thiselem = " " %>
-        <% photo.annotations << @new_ann %>
+        
+        <%# photo.annotations << new_ann %>
+        <%#  binding.pry %>
       <% end %>
       </div>
 
       <p style= "padding-top: 5px"></p>
     </div>
-
+    
     <div class="media-body">
-      <% photo.annotations.each do |a| %>
-        <% if a.label != nil %>
-          <% @thiselem << " " << a.label.to_s %>
-          <%= @thiselem %>
-        <% end %>
-      <% end %>
 
+
+      <% photo.annotations.each do |a| %>
+          <div class="form-group">
+          <%= a.label.to_s %>
+            <%= form_with scope: :annotation, method: 'get', url: upvote_path do |f| %>
+                <%= f.hidden_field :photo_id, value: photo.id %>
+                <%= f.submit 'Upvote', class: 'btn btn-default' %>
+            <% end %>
+
+            <%= form_with scope: :annotation, method: 'get', url: downvote_path do |f| %>
+                <%= f.hidden_field :photo_id, value: photo.id %>
+                <%= f.submit 'Downvote', class: 'btn btn-default' %>
+            <% end %>
+
+          </div>
+      <% end %>
 
     </div>
 

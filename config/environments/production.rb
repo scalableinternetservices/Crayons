@@ -77,7 +77,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.paperclip_defaults = {
-#perms 4
+ 
     storage: :s3,
     url: ':s3_domain_url',
     path: ':class/:attachment/:id_partition/:style/:filename',

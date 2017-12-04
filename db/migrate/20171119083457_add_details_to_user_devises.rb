@@ -9,6 +9,11 @@ class AddDetailsToUserDevises < ActiveRecord::Migration[5.1]
     add_column :user_devises, :gender, :string, default:""
     add_column :user_devises, :birthday, :date
     add_column :user_devises, :country, :string, default:""
+    add_column :user_devises, :number_of_upvotes, :integer, default:0
+    add_column :user_devises, :number_of_downvotes, :integer, default:0
+    add_column :user_devises, :number_of_upvotes_on_tag, :integer, default:0
+    add_column :user_devises, :number_of_downvotes_on_tag, :integer, default:0
+
     
   end
 
