@@ -36,12 +36,12 @@ class AnnotationsController < ApplicationController
   def upvote
     @annotation = Annotation.find_by(annotation_params)
     @user = UserDevise.find(current_user_devise.id)
-    @user.update_column(:number_of_upvotes, +1)
+    @user.update_column(:number_of_upvotes, @user.number_of_upvotes+1)
 
     @taguser = @annotation.user_devises_id
 
     @tagnotme = UserDevise.find(@taguser)
-    @tagnotme.update_column(:number_of_upvotes_on_tag, +1)
+    @tagnotme.update_column(:number_of_upvotes_on_tag, @user.number_of_upvotes_on_tag+1)
 
     if @annotation.save
       #if annotation successfully created
@@ -53,7 +53,7 @@ class AnnotationsController < ApplicationController
   def downvote
     @annotation = Annotation.find_by(annotation_params)
     @user = UserDevise.find(current_user_devise.id)
-    @user.update_column(:number_of_downvotes, +1)
+    @user.update_column(:number_of_downvotes, @user.number_of_downvotes+1)
 
     @taguser = @annotation.user_devises_id
 
