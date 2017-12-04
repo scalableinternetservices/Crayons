@@ -31,7 +31,13 @@
   </div>
 
   <div class="form-group">
+        <% if user_devise_signed_in? %>
         <%= f.submit 'Upload Photo', class: 'btn btn-default' %>
+        <% else %>
+        <h1>You cannot upload images unless you are logged in!</h1>
+        <p><%= link_to('Login', new_user_devise_session_path)  %></p>
+        <p><%= link_to('Register', new_user_devise_registration_path)%></p>
+    <% end %>
     </div>
 <% end %>
 </body>

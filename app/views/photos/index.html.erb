@@ -17,51 +17,55 @@
       <!-- rendering stuff here photo.annotation.url, class: 'text-field?'-->
       <!-- Button to delete image -->
       <p style= "padding-top: 2px"></p>
-      <%= link_to 'Download', photo.image(:original), download: "User_#{photo.user_devises_id}_image", class: 'btn btn-danger'%>
-      <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% if user_devise_signed_in? %>
 
-      <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
+        <%= link_to 'Download', photo.image(:original), download: "User_#{photo.user_devises_id}_image", class: 'btn btn-danger'%>
 
-      <%# @new_ann = Annotation.create(params[:photo_id]) %>
-      
-      <%#  binding.pry %>
-      <div class="form-group">
-      <%# new_ann = Annotation.new() #just a new ann object%> 
-        
-      <%= form_with scope: :annotation, url: annotations_path do |f| %>
-        <%= f.hidden_field :photo_id, value: photo.id %>  
-        <%= f.text_field :label %>
-        <%= f.submit 'Tag this photo!', class: 'btn btn-default' %>
-        
-        <%# photo.annotations << new_ann %>
+        <% if current_user_devise == photo.user_devises_id %>
+          <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+        <%end%>
+        <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
+
+        <%# @new_ann = Annotation.create(params[:photo_id]) %>
+
         <%#  binding.pry %>
-      <% end %>
+        <div class="form-group">
+        <%# new_ann = Annotation.new() #just a new ann object%>
+
+        <%= form_with scope: :annotation, url: annotations_path do |f| %>
+          <%= f.hidden_field :photo_id, value: photo.id %>
+          <%= f.text_field :label %>
+          <%= f.submit 'Tag this photo!', class: 'btn btn-default' %>
+
+          <%# photo.annotations << new_ann %>
+          <%#  binding.pry %>
+        <% end %>
+        </div>
+
+        <p style= "padding-top: 5px"></p>
       </div>
 
-      <p style= "padding-top: 5px"></p>
-    </div>
-    
-    <div class="media-body">
+      <div class="media-body">
 
 
-      <% photo.annotations.each do |a| %>
-          <div class="form-group">
-          <%= a.label.to_s %>
-            <%= form_with scope: :annotation, method: 'get', url: upvote_path do |f| %>
-                <%= f.hidden_field :photo_id, value: photo.id %>
-                <%= f.submit 'Upvote', class: 'btn btn-default' %>
-            <% end %>
+        <% photo.annotations.each do |a| %>
+            <div class="form-group">
+            <%= a.label.to_s %>
+              <%= form_with scope: :annotation, method: 'get', url: upvote_path do |f| %>
+                  <%= f.hidden_field :photo_id, value: photo.id %>
+                  <%= f.submit 'Upvote', class: 'btn btn-default' %>
+              <% end %>
 
-            <%= form_with scope: :annotation, method: 'get', url: downvote_path do |f| %>
-                <%= f.hidden_field :photo_id, value: photo.id %>
-                <%= f.submit 'Downvote', class: 'btn btn-default' %>
-            <% end %>
+              <%= form_with scope: :annotation, method: 'get', url: downvote_path do |f| %>
+                  <%= f.hidden_field :photo_id, value: photo.id %>
+                  <%= f.submit 'Downvote', class: 'btn btn-default' %>
+              <% end %>
 
-          </div>
+            </div>
+        <% end %>
+
+      </div>
       <% end %>
-
-    </div>
-
   <% end %>
 </div>
 </body>
