@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
   @photo.user_devises_id = current_user_devise.id
 
   @user = UserDevise.find(current_user_devise.id)
-  @user.update_column(:number_of_images_uploaded, +1)
+  @user.update_column(:number_of_images_uploaded, @user.number_of_images_uploaded+1)
 
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
