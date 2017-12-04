@@ -4,3 +4,5 @@
 #   http_host: 'example.org',
 #   https: false
 # )
+
+Rack::MiniProfiler.config.storage = Rack::MiniProfiler::MemoryStore
