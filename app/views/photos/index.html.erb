@@ -21,7 +21,7 @@
 
         <%= link_to 'Download', photo.image(:original), download: "User_#{photo.user_devises_id}_image", class: 'btn btn-danger'%>
 
-        <% if current_user_devise == photo.user_devises_id %>
+        <% if current_user_devise.id == photo.user_devises_id %>
           <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
         <%end%>
         <!-- So this section is creating a new empty annotation for each photo and if the user decides to -->
