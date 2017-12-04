@@ -6,9 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
-
  10.times {
 
    randomPassword = Devise.friendly_token.first(8)
@@ -33,16 +30,27 @@
              :label => Faker::Pokemon.name,
              :upvotes => rand(1000),
              :downvotes => rand(1000),
-             :user_devises_id => rand(10)
+             :user_devises_id => rand(1..10)
   )
   annotation.save!
 }
 
-10.times {
+ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png",
+     "http://archive-media-0.nyafuu.org/vp/image/1368/67/1368673826385.png",
+     "http://www.freeiconspng.com/uploads/flareon-pokemon-png-1.png",
+     "http://cdn2.vox-cdn.com/uploads/chorus_asset/file/671042/005Charmeleon.0.png"]
 
+      10.times {
 
+        photo = Photo.new(
+                  :title => Faker::Pokemon.name,
+                  :image_file_name => "http://cdn2.vox-cdn.com/uploads/chorus_asset/file/671042/005Charmeleon.0.png",
+                  :user_devises_id => rand(1..10)
+        )
 
-}
+        photo.save!
+
+      }
 
 
 
