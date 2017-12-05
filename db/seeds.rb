@@ -1,4 +1,3 @@
-require 'faker'
 
 10.times {
 
@@ -61,7 +60,7 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
   photo = Photo.new(
       :title => Faker::Pokemon.name,
       :image_file_name => "pokemon.png",
-      :user_devises_id => 21,
+      :user_devises_id => rand(1..10),
       :image => list_images[rand(0..23)]
   )
 
