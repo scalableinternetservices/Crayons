@@ -151,6 +151,7 @@ GEM
       rack (>= 1.2.0)
     rack-test (0.6.3)
       rack (>= 1.0)
+    railroady (1.5.3)
     rails (5.1.2)
       actioncable (= 5.1.2)
       actionmailer (= 5.1.2)
@@ -255,6 +256,7 @@ DEPENDENCIES
   pry
   puma (= 3.9.1)
   rack-mini-profiler
+  railroady
   rails (= 5.1.2)
   sass-rails (= 5.0.6)
   selenium-webdriver

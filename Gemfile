@@ -28,6 +28,7 @@ gem 'rack-mini-profiler'
 gem 'flamegraph'
 gem 'stackprof' # ruby 2.1+ only
 gem 'memory_profiler'
+gem 'railroady'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
