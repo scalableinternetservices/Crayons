@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-
-require 'faker'
-
-5000.times {
+10.times {
 
   randomPassword = Devise.friendly_token.first(8)
 
@@ -20,17 +14,6 @@ require 'faker'
   )
 
   user.save!
-}
-
-100000.times {
-
-  annotation = Annotation.new(
-      :label => Faker::Pokemon.name,
-      :upvotes => rand(1000),
-      :downvotes => rand(1000),
-      :user_devises_id => rand(1..10) #
-  )
-  annotation.save!
 }
 
 list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png",
@@ -56,21 +39,32 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
                "https://cdn.bulbagarden.net/upload/thumb/9/91/255Torchic.png/250px-255Torchic.png",
                "https://vignette.wikia.nocookie.net/new-monster/images/d/d9/Oddish.png/revision/latest?cb=20150126153018",
                "https://s-media-cache-ak0.pinimg.com/originals/e7/51/8f/e7518fe6d9bc9569368a0f305967dace.png",
-               "https://s-media-cache-ak0.pinimg.com/originals/ec/47/56/ec47566ba72535de038174b1aefdea1f.png",
-               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyjAr703SETPQwV2HFFXuJsrRouITKgS1ezzKAqhpWMFqZjr6CXg"
+               "https://s-media-cache-ak0.pinimg.com/originals/ec/47/56/ec47566ba72535de038174b1aefdea1f.png"
 ]
 
-20000.times {
+10.times {
 
   photo = Photo.new(
       :title => Faker::Pokemon.name,
       :image_file_name => "pokemon.png",
       :user_devises_id => rand(1..10),
-      :image => list_images[rand(0..24)]
+      :image => list_images[rand(0..23)]
   )
 
   photo.save!
 
 }
 
+10.times {
 
+  annotation = Annotation.new(
+      :label => Faker::Pokemon.name,
+      :upvotes => rand(1000),
+      :downvotes => rand(1000),
+      :user_devises_id => rand(1..10) #
+  )
+  annotation.save!
+
+  Photo.find(rand(1..10)).annotations << annotation
+
+}
