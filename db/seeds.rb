@@ -1,5 +1,5 @@
 
-10.times {
+1000.times {
 
   randomPassword = Devise.friendly_token.first(8)
 
@@ -43,12 +43,12 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
                "https://s-media-cache-ak0.pinimg.com/originals/ec/47/56/ec47566ba72535de038174b1aefdea1f.png"
 ]
 
-10.times {
+1000.times {
 
   photo = Photo.new(
       :title => Faker::Pokemon.name,
       :image_file_name => "pokemon.png",
-      :user_devises_id => rand(1..10),
+      :user_devises_id => rand(1..1000),
       :image => list_images[rand(0..23)]
   )
 
@@ -56,17 +56,17 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
 
 }
 
-10.times {
+2000.times {
 
   annotation = Annotation.new(
       :label => Faker::Pokemon.name,
       :upvotes => rand(1000),
       :downvotes => rand(1000),
-      :user_devises_id => rand(1..10) #
+      :user_devises_id => rand(1..1000) #
   )
   annotation.save!
 
-  Photo.find(rand(1..10)).annotations << annotation
+  Photo.find(rand(1..1000)).annotations << annotation
 
 }
 
