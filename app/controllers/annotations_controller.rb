@@ -13,23 +13,23 @@ class AnnotationsController < ApplicationController
     #flash[:notice] = "You tagged this photo!"
     #redirect_to photo_path
   end
-  
+
   def create # this adds the record to the database
     @annotation = Annotation.find_or_create_by(annotation_params)
     @annotation.user_devises_id = current_user_devise.id
 
     @user = UserDevise.find(current_user_devise.id)
-    @user.update_column(:number_of_labels_made, +1)
+    @user.update_column(:number_of_labels_made, @user.number_of_labels_made+1)
 
     Photo.find(params["annotation"]["photo_id"]).annotations << @annotation
 
     redirect_to photos_path
-    
+
   end
 
   def index
     @annotations = Annotations.order('created_at')
-    
+
     # by default renders "index.html.erb" unless this behavior is overridden (like in update)
   end
 
@@ -38,10 +38,12 @@ class AnnotationsController < ApplicationController
     @user = UserDevise.find(current_user_devise.id)
     @user.update_column(:number_of_upvotes, @user.number_of_upvotes+1)
 
+    @annotation.update_column(:upvotes, @annotation.upvotes+1)
+
     @taguser = @annotation.user_devises_id
 
     @tagnotme = UserDevise.find(@taguser)
-    @tagnotme.update_column(:number_of_upvotes_on_tag, @user.number_of_upvotes_on_tag+1)
+    @tagnotme.update_column(:number_of_upvotes_on_tag, @tagnotme.number_of_upvotes_on_tag+1)
 
     if @annotation.save
       #if annotation successfully created
@@ -55,10 +57,12 @@ class AnnotationsController < ApplicationController
     @user = UserDevise.find(current_user_devise.id)
     @user.update_column(:number_of_downvotes, @user.number_of_downvotes+1)
 
+    @annotation.update_column(:downvotes, @annotation.downvotes+1)
+
     @taguser = @annotation.user_devises_id
 
     @tagnotme = UserDevise.find(@taguser)
-    @tagnotme.update_column(:number_of_upvotes_on_tag, -1)
+    @tagnotme.update_column(:number_of_upvotes_on_tag, @tagnotme.number_of_upvotes_on_tag-1)
 
     if @annotation.save
       #if annotation successfully created
