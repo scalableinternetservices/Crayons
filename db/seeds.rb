@@ -47,7 +47,7 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
   photo = Photo.new(
       :title => Faker::Pokemon.name,
       :image_file_name => "pokemon.png",
-      :user_devises_id => rand(1..10),
+      :user_devises_id => rand(1..1000),
       :image => list_images[rand(0..23)]
   )
 
@@ -61,10 +61,10 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
       :label => Faker::Pokemon.name,
       :upvotes => rand(1000),
       :downvotes => rand(1000),
-      :user_devises_id => rand(1..10) #
+      :user_devises_id => rand(1..1000) #
   )
   annotation.save!
 
-  Photo.find(rand(1..10)).annotations << annotation
+  Photo.find(rand(1..1000)).annotations << annotation
 
 }
