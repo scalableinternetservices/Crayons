@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me])
     devise_parameter_sanitizer.permit(:account_update, keys: [:firstname, :lastname, :email, :password, :password_confirmation, :current_password])
   end
+
+    before_action :check_rack_mini_profiler
+    def check_rack_mini_profiler
+      # for example - if current_user.admin?
+      if params[:rmp]
+        Rack::MiniProfiler.authorize_request
+      end
+    end
  end

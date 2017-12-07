@@ -1,8 +1,14 @@
 class Photo < ApplicationRecord
   #Mounts paperclip image
-  has_attached_file :image
+  has_attached_file :image,
+  :styles => {
+      :thumb => "100x100>",
+      :small  => "150x150>",
+      :medium => "200x200>" },
+      :convert_options => {
+      :thumb => "-quality 75 -strip" }
   has_and_belongs_to_many :annotations
-  
+
   #refers to several tables and referred by
   
 

@@ -2,7 +2,8 @@ class PhotosController < ApplicationController
 
 #Index action, photos gets listed in the order at which they were created
  def index
-  @photos = Photo.order('created_at')
+
+   @photos = Photo.paginate(:page => params[:page], :per_page => 5)
   # have annotation creation done here?
  end
 
@@ -13,6 +14,7 @@ class PhotosController < ApplicationController
 
  #Create action ensures that submitted photo gets created if it meets the requirements
  def create
+
   @photo = Photo.new(photo_params)
 
   @photo.user_devises_id = current_user_devise.id
