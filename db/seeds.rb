@@ -1,16 +1,11 @@
-<<<<<<< HEAD
 
-1000.times {
-=======
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 
 require 'faker'
 
-10.times {
->>>>>>> 108a7097d839b7468afa6888529329b3ea435c12
-
+1000.times{
   randomPassword = Devise.friendly_token.first(8)
 
   user = UserDevise.new(
@@ -27,20 +22,7 @@ require 'faker'
   user.save!
 }
 
-<<<<<<< HEAD
-=======
-10.times {
 
-  annotation = Annotation.new(
-      :label => Faker::Pokemon.name,
-      :upvotes => rand(1000),
-      :downvotes => rand(1000),
-      :user_devises_id => rand(1..10) #
-  )
-  annotation.save!
-}
-
->>>>>>> 108a7097d839b7468afa6888529329b3ea435c12
 list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png",
                "http://archive-media-0.nyafuu.org/vp/image/1368/67/1368673826385.png",
                "http://www.freeiconspng.com/uploads/flareon-pokemon-png-1.png",
@@ -67,20 +49,11 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
                "https://s-media-cache-ak0.pinimg.com/originals/ec/47/56/ec47566ba72535de038174b1aefdea1f.png"
 ]
 
-<<<<<<< HEAD
 1000.times {
-=======
-25.times {
->>>>>>> 108a7097d839b7468afa6888529329b3ea435c12
-
   photo = Photo.new(
       :title => Faker::Pokemon.name,
       :image_file_name => "pokemon.png",
-<<<<<<< HEAD
       :user_devises_id => rand(1..1000),
-=======
-      :user_devises_id => rand(1..10),
->>>>>>> 108a7097d839b7468afa6888529329b3ea435c12
       :image => list_images[rand(0..23)]
   )
 
@@ -88,7 +61,6 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
 
 }
 
-<<<<<<< HEAD
 2000.times {
 
   annotation = Annotation.new(
@@ -103,6 +75,4 @@ list_images = ["https://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250
 
 }
 
-=======
->>>>>>> 108a7097d839b7468afa6888529329b3ea435c12
 
