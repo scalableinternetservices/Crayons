@@ -22,17 +22,27 @@
             <state relative-caret-position="135">
               <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
-                <marker date="1512616887000" expanded="true" signature="24:502" ph=" ... end" />
+                <marker date="1512616967000" expanded="true" signature="24:502" ph=" ... end" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotations_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/annotations_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="21" column="48" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -44,10 +54,10 @@
             <state relative-caret-position="480">
               <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
-                <marker date="1512616887000" expanded="true" signature="695:1681" ph="##..." />
-                <marker date="1512616887000" expanded="true" signature="1709:2032" ph="do ... end" />
-                <marker date="1512616887000" expanded="true" signature="2053:2302" ph="do ... end" />
-                <marker date="1512616887000" expanded="true" signature="2322:2328" ph="do ... end" />
+                <marker date="1512616967000" expanded="true" signature="695:1681" ph="##..." />
+                <marker date="1512616967000" expanded="true" signature="1709:2032" ph="do ... end" />
+                <marker date="1512616967000" expanded="true" signature="2053:2302" ph="do ... end" />
+                <marker date="1512616967000" expanded="true" signature="2322:2328" ph="do ... end" />
               </folding>
             </state>
           </provider>
@@ -59,7 +69,7 @@
             <state relative-caret-position="150">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
-                <marker date="1512616887000" expanded="true" signature="11:545" ph=" ... end" />
+                <marker date="1512616967000" expanded="true" signature="11:545" ph=" ... end" />
               </folding>
             </state>
           </provider>
@@ -372,7 +382,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39747000" />
+    <option name="totallyTimeSpent" value="39759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="327" y="24" width="1113" height="872" extended-state="0" />
@@ -545,7 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -589,7 +598,7 @@
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1512616887000" expanded="true" signature="24:502" ph=" ... end" />
+            <marker date="1512616967000" expanded="true" signature="24:502" ph=" ... end" />
           </folding>
         </state>
       </provider>
@@ -657,18 +666,18 @@
         <state relative-caret-position="480">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <marker date="1512616887000" expanded="true" signature="695:1681" ph="##..." />
-            <marker date="1512616887000" expanded="true" signature="1709:2032" ph="do ... end" />
-            <marker date="1512616887000" expanded="true" signature="2053:2302" ph="do ... end" />
-            <marker date="1512616887000" expanded="true" signature="2322:2328" ph="do ... end" />
+            <marker date="1512616967000" expanded="true" signature="695:1681" ph="##..." />
+            <marker date="1512616967000" expanded="true" signature="1709:2032" ph="do ... end" />
+            <marker date="1512616967000" expanded="true" signature="2053:2302" ph="do ... end" />
+            <marker date="1512616967000" expanded="true" signature="2322:2328" ph="do ... end" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="1" />
+        <state relative-caret-position="165">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -707,7 +716,7 @@
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <marker date="1512616887000" expanded="true" signature="11:545" ph=" ... end" />
+            <marker date="1512616967000" expanded="true" signature="11:545" ph=" ... end" />
           </folding>
         </state>
       </provider>
@@ -752,8 +761,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/annotations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="55" column="37" lean-forward="true" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="54" />
+        <state relative-caret-position="199">
+          <caret line="21" column="48" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
